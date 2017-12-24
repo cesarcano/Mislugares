@@ -1,19 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     tools:context="com.gmail.cesarcanojmz.mislugares.EdicionLugarActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</LinearLayout>
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/l_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        <EditText
+            android:id="@+id/txt_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/l_nombre"
+            android:layout_marginTop="5dp"
+            android:hint="algo que identifique al lugar"
+            android:inputType="textPersonName">
+            <requestFocus/>
+        </EditText>
+        <TextView
+            android:id="@+id/l_tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_nombre"
+            android:layout_marginTop="10dp"
+            android:text="Tipo:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        <Spinner
+            android:id="@+id/spn_tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/l_tipo"
+            android:layout_below="@id/txt_nombre"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/l_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/l_tipo"
+            android:layout_marginTop="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Dirección:"/>
+        <EditText
+            android:id="@+id/txt_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_direccion"
+            android:layout_marginTop="5dp"
+            android:hint="dirección del lugar"
+            android:inputType="textPostalAddress|textMultiLine"/>
+        <TextView
+            android:id="@+id/l_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_direccion"
+            android:layout_marginTop="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Telefono:"/>
+        <EditText
+            android:id="@+id/txt_telefono"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_direccion"
+            android:layout_toRightOf="@id/l_telefono"
+            android:layout_marginLeft="15dp"
+            android:hint="teléfono para contactar"
+            android:inputType="phone"/>
+        <TextView
+            android:id="@+id/l_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_telefono"
+            android:layout_marginTop="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Url:"/>
+        <EditText
+            android:id="@+id/txt_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_url"
+            android:layout_marginTop="5dp"
+            android:hint="página web"
+            android:inputType="textWebEditText|textUri"/>
+        <TextView
+            android:id="@+id/l_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_url"
+            android:layout_marginTop="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Comentario:"/>
+        <EditText
+            android:id="@+id/txt_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_comentario"
+            android:layout_marginTop="5dp"
+            android:hint="introduce tus notas"
+            android:inputType="textMultiLine"/>
+    </RelativeLayout>
+</ScrollView>
