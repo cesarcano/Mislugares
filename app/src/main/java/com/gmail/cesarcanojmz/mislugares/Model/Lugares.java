@@ -41,7 +41,8 @@ public class Lugares {
     private static ArrayList<Lugar> ejemploLugares() {
         ArrayList<Lugar> lugares = new ArrayList<Lugar>();
 
-        lugares.add( new Lugar("UPIICSA", "Av. Té 950, Granjas México, 08400 Ciudad de México, CDMX",
+        lugares.add( new Lugar("UNIDAD PROFESIONAL INTERDISCIPLINARIA DE INGENIERÍA Y CIENCIAS SOCIALES Y ADMINISTRATIVAS - IPN"
+                , "Av. Té 950, Granjas México, 08400 Ciudad de México, CDMX",
                 19.396111, -99.091944, TipoLugar.EDUCACION, 24234324, "http://www.upiicsa.ipn.mx",
                 "El mejor lugar para formarse", 4) );
         return lugares;

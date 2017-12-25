@@ -33,4 +33,13 @@ public enum TipoLugar {
     public int getRecurso() {
         return recurso;
     }
+
+    public static  String[] getNombres() {
+        String[] nombres = new String[TipoLugar.values().length];
+        for (TipoLugar tipo : TipoLugar.values()) {
+            nombres[tipo.ordinal()] = tipo.getTexto();
+        }
+        return nombres;
+    }
+
 }
