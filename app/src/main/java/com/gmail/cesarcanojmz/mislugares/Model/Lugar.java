@@ -14,9 +14,16 @@ public class Lugar {
     private String comentario;
     private long fecha;
     private float valoracion;
+    private TipoLugar tipoLugar;
+
+    public Lugar() {
+        this.posicion = new Geopunto(0, 0);
+        this.fecha = System.currentTimeMillis();
+        this.tipoLugar = TipoLugar.OTROS;
+    }
 
     public Lugar(String nombre, String direccion, double latitud, double longitud,
-                 int telefono, String url, String comentario, float valoracion) {
+                 TipoLugar tipoLugar, int telefono, String url, String comentario, float valoracion) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -25,6 +32,7 @@ public class Lugar {
         this.valoracion = valoracion;
         this.fecha = System.currentTimeMillis();
         this.posicion = new Geopunto(latitud, longitud);
+        this.tipoLugar = tipoLugar;
     }
 
     @Override
@@ -39,6 +47,7 @@ public class Lugar {
                 ", comentario='" + comentario + '\'' +
                 ", fecha=" + fecha +
                 ", valoracion=" + valoracion +
+                ", tipoLugar=" + tipoLugar +
                 '}';
     }
 
@@ -112,5 +121,13 @@ public class Lugar {
 
     public void setValoracion(float valoracion) {
         this.valoracion = valoracion;
+    }
+
+    public TipoLugar getTipoLugar() {
+        return tipoLugar;
+    }
+
+    public void setTipoLugar(TipoLugar tipoLugar) {
+        this.tipoLugar = tipoLugar;
     }
 }

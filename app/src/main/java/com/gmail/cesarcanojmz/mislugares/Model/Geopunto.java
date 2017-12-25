@@ -31,4 +31,12 @@ public class Geopunto {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         return c * RADIO_TIERRA;
     }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
 }
