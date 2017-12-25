@@ -15,7 +15,7 @@
             android:text="Nombre:"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
         <EditText
-            android:id="@+id/txt_nombre"
+            android:id="@+id/eT_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/l_nombre"
@@ -28,16 +28,16 @@
             android:id="@+id/l_tipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_nombre"
+            android:layout_below="@+id/eT_nombre"
             android:layout_marginTop="10dp"
             android:text="Tipo:"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
         <Spinner
-            android:id="@+id/spn_tipo"
+            android:id="@+id/sp_tipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/l_tipo"
-            android:layout_below="@id/txt_nombre"
+            android:layout_below="@id/eT_nombre"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"/>
         <TextView
@@ -49,7 +49,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Dirección:"/>
         <EditText
-            android:id="@+id/txt_direccion"
+            android:id="@+id/eT_direccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/l_direccion"
@@ -60,15 +60,15 @@
             android:id="@+id/l_telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_direccion"
+            android:layout_below="@id/eT_direccion"
             android:layout_marginTop="15dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Telefono:"/>
         <EditText
-            android:id="@+id/txt_telefono"
+            android:id="@+id/eT_telefono"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_direccion"
+            android:layout_below="@id/eT_direccion"
             android:layout_toRightOf="@id/l_telefono"
             android:layout_marginLeft="15dp"
             android:hint="teléfono para contactar"
@@ -82,7 +82,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Url:"/>
         <EditText
-            android:id="@+id/txt_url"
+            android:id="@+id/eT_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/l_url"
@@ -93,12 +93,12 @@
             android:id="@+id/l_comentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_url"
+            android:layout_below="@id/eT_url"
             android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Comentario:"/>
         <EditText
-            android:id="@+id/txt_comentario"
+            android:id="@+id/eT_comentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/l_comentario"

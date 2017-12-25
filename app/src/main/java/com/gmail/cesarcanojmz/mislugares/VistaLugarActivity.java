@@ -1,10 +1,17 @@
 package com.gmail.cesarcanojmz.mislugares;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gmail.cesarcanojmz.mislugares.Model.Lugar;
 import com.gmail.cesarcanojmz.mislugares.Model.Lugares;
@@ -33,13 +40,13 @@ public class VistaLugarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vista_lugar);
-        // < Extras >
+                                                // < Extras >
         Bundle extras = getIntent().getExtras();
         id = extras.getLong("id", -1);
-        // </ Extras >
+                                                // </ Extras >
         lugar = Lugares.elemento((int) id);
 
-        // < CASTEO >
+                                                    // < CASTEO >
         tv_nombreL = findViewById(R.id.tv_nombre_lugar);
         tv_tipoL = findViewById(R.id.tv_tipo_lugar);
         iv_tipoL = findViewById(R.id.ic_tipo_lugar);
@@ -51,7 +58,7 @@ public class VistaLugarActivity extends AppCompatActivity {
         tv_horaL = findViewById(R.id.tv_hora_lugar);
         rb_valoracionL = findViewById(R.id.rb_valoracion_lugar);
         iv_fotoL = findViewById(R.id.img_foto_lugar);
-        // </ CASTEO >
+                                                    // </ CASTEO >
 
         tv_nombreL.setText(lugar.getNombre());
         tv_tipoL.setText(lugar.getTipoLugar().getTexto());
@@ -72,4 +79,65 @@ public class VistaLugarActivity extends AppCompatActivity {
         });
 
     }
+
+                                                /* <!-- MENU  */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_vista_lugar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.om_compartir:
+                return true;
+            case R.id.om_llegar:
+                return true;
+            case R.id.om_editar:
+                action_editarLugar();
+                return true;
+            case R.id.om_borrar:
+                action_borrarLugar();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+                                                /*  MENU --> */
+
+                                                /* <!-- MENU ACTIONS  */
+    private void action_borrarLugar () {
+        new AlertDialog.Builder(this)
+                .setTitle("Borrado de lugar")
+                .setMessage("Está seguro que desea borrar este lugar?")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getBaseContext(), "Lugar Borrado", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+
+    }
+
+    private void action_editarLugar () {
+        new AlertDialog.Builder(this)
+                .setTitle("Edición de lugar")
+                .setMessage("Está seguro que desea editar este lugar?")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(getBaseContext(), EdicionLugarActivity.class);
+                        startActivity(i);
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+
+    }
+                                                /* MENU ACTIONS --> */
 }
