@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iV_iconoList"
+        android:layout_width="?listPreferredItemHeight"
+        android:layout_height="?listPreferredItemHeight"
+        android:src="@drawable/ic_lugar_tipo"/>
+    <TextView
+        android:id="@+id/tV_nombreList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Nombre del lugar"
+        android:layout_toRightOf="@+id/iV_iconoList"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/tV_direccionList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Domicilio completo del lugar"
+        android:layout_below="@id/tV_nombreList"
+        android:layout_toRightOf="@+id/iV_iconoList"
+        android:layout_marginLeft="10dp"/>
+    <RatingBar
+        android:id="@+id/rB_raitingList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="1"
+        android:layout_below="@id/tV_direccionList"
+        android:layout_toRightOf="@+id/iV_iconoList"
+        android:layout_marginLeft="10dp"/>
+</RelativeLayout>
