@@ -60,6 +60,11 @@ public class VistaLugarActivity extends AppCompatActivity {
         iv_fotoL = findViewById(R.id.img_foto_lugar);
                                                     // </ CASTEO >
 
+        actualizarVista();
+
+    }
+
+    void actualizarVista() {
         tv_nombreL.setText(lugar.getNombre());
         tv_tipoL.setText(lugar.getTipoLugar().getTexto());
         iv_tipoL.setImageResource(lugar.getTipoLugar().getRecurso());
@@ -80,7 +85,15 @@ public class VistaLugarActivity extends AppCompatActivity {
 
     }
 
-                                                /* <!-- MENU  */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1234) {
+            actualizarVista();
+            findViewById(R.id.activity_vista_lugar).invalidate();
+        }
+    }
+
+    /* <!-- MENU  */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -132,7 +145,8 @@ public class VistaLugarActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent i = new Intent(getBaseContext(), EdicionLugarActivity.class);
-                        startActivity(i);
+                        startActivityForResult(i, 1234);
+                        //startActivity(i);
                     }
                 })
                 .setNegativeButton("Cancelar", null)
