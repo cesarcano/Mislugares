@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".VistaLugarActivity" />
         <activity android:name=".EdicionLugarActivity" />
+        <activity android:name=".AcercadeActivity"
+            android:theme="@style/Base.Theme.AppCompat.Dialog.Alert"/>
 
     </application>
 
