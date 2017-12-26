@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edicion_lugar);
     }
 
+                                                    /* <!-- ACTIONS MENU ---*/
     public void lanzar_VistaLugar(View view) {
         final EditText et_entrada = new EditText(this);
         et_entrada.setText("0");
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void lanzar_VistaAcercaDe() {
+        Intent i = new Intent(getBaseContext(), AcercadeActivity.class);
+        startActivity(i);
+    }
+                                                    /* --- ACTIONS MENU --> */
+
                                                 /* <!-- MENU  */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.om_acercade:
+                lanzar_VistaAcercaDe();
                 return true;
             case R.id.om_configuracion:
                 return true;
