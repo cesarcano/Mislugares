@@ -177,7 +177,8 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="logo galaria"
-                    android:src="@drawable/ic_galery"/>
+                    android:src="@drawable/ic_galery"
+                    android:onClick="galeria"/>
             </LinearLayout>
 
         </FrameLayout>
