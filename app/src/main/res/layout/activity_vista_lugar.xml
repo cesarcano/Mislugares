@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_vista_lugar"
     tools:context="com.gmail.cesarcanojmz.mislugares.VistaLugarActivity">
     <RelativeLayout
         android:padding="15dp"
@@ -39,7 +40,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_lugar_direccion"
             android:layout_below="@+id/tv_tipo_lugar"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:onClick="comoLlegar"/>
         <TextView
             android:id="@+id/tv_direccion_lugar"
             android:layout_width="wrap_content"
@@ -49,14 +51,16 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:text="Dirección del lugar"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:onClick="comoLlegar"/>
         <ImageView
             android:id="@+id/ic_telefono_lugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_lugar_telefono"
             android:layout_below="@+id/tv_direccion_lugar"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:onClick="llamadaTelefonica"/>
         <TextView
             android:id="@+id/tv_telefono_lugar"
             android:layout_width="wrap_content"
@@ -66,14 +70,16 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:text="7686878090"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:onClick="llamadaTelefonica"/>
         <ImageView
             android:id="@+id/ic_url_lugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_lugar_url"
             android:layout_below="@+id/tv_telefono_lugar"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:onClick="goToWebSite"/>
         <TextView
             android:id="@+id/tv_url_lugar"
             android:layout_width="wrap_content"
@@ -83,7 +89,8 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             android:text="www.weblugar.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:onClick="goToWebSite"/>
         <ImageView
             android:id="@+id/ic_descripcion_lugar"
             android:layout_width="wrap_content"

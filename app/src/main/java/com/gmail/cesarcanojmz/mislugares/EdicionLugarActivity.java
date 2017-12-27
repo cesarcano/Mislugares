@@ -75,10 +75,23 @@ public class EdicionLugarActivity extends AppCompatActivity {
             case R.id.om_cancelarEd:
                 return true;
             case R.id.om_guardarEd:
+                guardarEdicion();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
                                                     /* MENU --> */
+
+                                                    /* <!-- MENU ACTIONS */
+    private void guardarEdicion() {
+        lugar.setNombre(eT_nombreL.getText().toString());
+        lugar.setTipoLugar(TipoLugar.values()[sp_tipoL.getSelectedItemPosition()]);
+        lugar.setDireccion(eT_direccionL.getText().toString());
+        lugar.setTelefono(Integer.parseInt(eT_telefonoL.getText().toString()));
+        lugar.setUrl(eT_webL.getText().toString());
+        lugar.setComentario(eT_comentarioL.getText().toString());
+        finish();
+    }
+                                                    /* MENU ACTIONS -->*/
 }

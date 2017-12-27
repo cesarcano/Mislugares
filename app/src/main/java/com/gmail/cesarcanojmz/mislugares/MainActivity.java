@@ -9,16 +9,32 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import com.gmail.cesarcanojmz.mislugares.Adapter.ListLugares;
 
 public class MainActivity extends AppCompatActivity {
+
+    public ListLugares adapterlistLugares; // Adaptador de la lista
+    ListView listLugares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edicion_lugar);
+        setContentView(R.layout.activity_main);
+
+        // Cargando lista
+        loadListLugares();
     }
 
+    private void loadListLugares() {
+        adapterlistLugares = new ListLugares(this);
+        listLugares = findViewById(R.id.list_Lugares);
+        listLugares.setAdapter(adapterlistLugares);
+    }
+                                                    /* <!-- ACTIONS MENU ---*/
     public void lanzar_VistaLugar(View view) {
         final EditText et_entrada = new EditText(this);
         et_entrada.setText("0");
@@ -41,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void lanzar_VistaAcercaDe() {
+        Intent i = new Intent(getBaseContext(), AcercadeActivity.class);
+        startActivity(i);
+    }
+                                                    /* --- ACTIONS MENU --> */
+
                                                 /* <!-- MENU  */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.om_acercade:
+                lanzar_VistaAcercaDe();
                 return true;
             case R.id.om_configuracion:
                 return true;
