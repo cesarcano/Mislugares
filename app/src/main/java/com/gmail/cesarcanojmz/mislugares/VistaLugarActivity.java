@@ -2,12 +2,15 @@ package com.gmail.cesarcanojmz.mislugares;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -106,8 +109,10 @@ public class VistaLugarActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.om_compartir:
+                compartirLugar(null);
                 return true;
             case R.id.om_llegar:
+                comoLlegar(null);
                 return true;
             case R.id.om_editar:
                 action_editarLugar();
@@ -122,7 +127,7 @@ public class VistaLugarActivity extends AppCompatActivity {
                                                 /*  MENU --> */
 
                                                 /* <!-- MENU ACTIONS  */
-    private void action_borrarLugar () {
+    public void action_borrarLugar () {
         new AlertDialog.Builder(this)
                 .setTitle("Borrado de lugar")
                 .setMessage("Está seguro que desea borrar este lugar?")
@@ -137,7 +142,7 @@ public class VistaLugarActivity extends AppCompatActivity {
 
     }
 
-    private void action_editarLugar () {
+    public void action_editarLugar () {
         new AlertDialog.Builder(this)
                 .setTitle("Edición de lugar")
                 .setMessage("Está seguro que desea editar este lugar?")
@@ -153,5 +158,40 @@ public class VistaLugarActivity extends AppCompatActivity {
                 .show();
 
     }
+
+    public void compartirLugar(View view) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, lugar.getNombre() + "-" + lugar.getUrl());
+        startActivity(intent);
+    }
+
+    public void comoLlegar(View view){
+        Uri uri;
+        double lat = lugar.getPosicion().getLatitud();
+        double lon = lugar.getPosicion().getLongitud();
+
+        if(lat != 0 || lon != 0 ) {
+            uri = Uri.parse("geo:" + lat + "," + lon);
+        } else {
+            uri = Uri.parse("geo:0,0?q="+lugar.getDireccion());
+        }
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    public void llamadaTelefonica(View view) {
+        startActivity(new Intent(Intent.ACTION_DIAL,
+                Uri.parse("tel:"+lugar.getTelefono())));
+    }
+
+    public void goToWebSite(View view){
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(lugar.getUrl())));
+    }
+
+
+
                                                 /* MENU ACTIONS --> */
 }
