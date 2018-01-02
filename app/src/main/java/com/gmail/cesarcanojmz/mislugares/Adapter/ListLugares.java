@@ -23,6 +23,7 @@ public class ListLugares extends BaseAdapter {
     TextView tV_Direccion;
     RatingBar rB_Valoracion;
     ImageView iV_icono;
+    TextView tV_Distancia;
 
     public ListLugares(Context context) {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -57,6 +58,7 @@ public class ListLugares extends BaseAdapter {
         tV_Direccion = view.findViewById(R.id.tV_direccionList);
         iV_icono = view.findViewById(R.id.iV_iconoList);
         rB_Valoracion = view.findViewById(R.id.rB_raitingList);
+        tV_Distancia = view.findViewById(R.id.tV_distancia);
 
         int id = R.drawable.ic_lugar_tipo;
 
@@ -78,6 +80,14 @@ public class ListLugares extends BaseAdapter {
         tV_Nombre.setText(lugar.getNombre());
         tV_Direccion.setText(lugar.getDireccion());
         rB_Valoracion.setRating(lugar.getValoracion());
+        if(Lugares.posicionActual != null && lugar.getPosicion() != null) {
+            int d = (int) Lugares.posicionActual.distancia(lugar.getPosicion());
+            if (d < 2000) {
+                tV_Distancia.setText(d + " m");
+            } else {
+                tV_Distancia.setText(d / 1000 + " Km");
+            }
+        }
         return view;
     }
 }

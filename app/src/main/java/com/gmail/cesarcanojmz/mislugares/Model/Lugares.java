@@ -9,7 +9,9 @@ import java.util.List;
 
 public class Lugares {
 
+    public static final String TAG = "Mis lugares" ;
     protected static List<Lugar> vectorLugares = ejemploLugares();
+    public static Geopunto posicionActual = new Geopunto(0,0);
 
 
     public Lugares() {
